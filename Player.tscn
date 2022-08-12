@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Diddy Kong Racing Crash.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.5
+height = 3.0
+
+[node name="Player" type="KinematicBody"]
+
+[node name="Pivot" type="Spatial" parent="."]
+
+[node name="Diddy Kong Racing Crash" type="MeshInstance" parent="Pivot"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1.08039, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.424877, 0 )
+shape = SubResource( 1 )
