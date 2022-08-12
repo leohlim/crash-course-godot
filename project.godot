@@ -14,6 +14,11 @@ config/name="crash-course-godot"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=720
+window/size/height=540
+
 [input]
 
 move_left={

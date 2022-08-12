@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Diddy Kong Racing Crash.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.192157, 0.0588235, 1 )
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.5
@@ -15,7 +18,7 @@ script = ExtResource( 2 )
 [node name="Diddy Kong Racing Crash" type="MeshInstance" parent="Pivot"]
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, -1.08039, 0 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.424877, 0 )
