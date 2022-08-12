@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Diddy Kong Racing Crash.obj-a3303592cf347b926f3b7bc952184e38.mesh"
+
+[deps]
+
+files=[ "res://.import/Diddy Kong Racing Crash.obj-a3303592cf347b926f3b7bc952184e38.mesh" ]
+
+source_file="res://Diddy Kong Racing Crash.obj"
+dest_files=[ "res://.import/Diddy Kong Racing Crash.obj-a3303592cf347b926f3b7bc952184e38.mesh", "res://.import/Diddy Kong Racing Crash.obj-a3303592cf347b926f3b7bc952184e38.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
