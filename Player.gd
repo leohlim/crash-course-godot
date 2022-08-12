@@ -6,6 +6,10 @@ export var speed = 14
 # Downward acceleration when in the air, in meters per second squared
 export var fall_acceleration = 75
 
+export var jump_impulse = 30
+
+export var bounce_impulse = 16
+
 var velocity = Vector3.ZERO
 
 
@@ -34,8 +38,27 @@ func _physics_process(delta):
 	# Vertical velocity
 	velocity.y -= fall_acceleration * delta
 	
+	# Jump
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y += jump_impulse
+		
 	# Moving the character
 	velocity = move_and_slide(velocity, Vector3.UP)
+	
+	for index in range (get_slide_count()):
+		# Check every collision that occured this frame.
+		var collision = get_slide_collision(index)
+		
+		# If we collide with an obstacle...
+		if collision.collider.is_in_group("obstacle"):
+			var obstacle = collision.collider
+			
+			# Check that we are hitting it from above
+			if Vector3.UP.dot(collision.normal) > 0.1:
+				
+				# If so, we bounce on it and kill it
+				obstacle.squash()
+				velocity.y = bounce_impulse
 	
 	
 	

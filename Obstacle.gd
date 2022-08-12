@@ -6,6 +6,9 @@ export var min_speed = 10
 # Maximum speed of obstacle (meters per second)
 export var max_speed = 18
 
+# Emitted when the player jumps on the obstacle
+signal squashed
+
 var velocity = Vector3.ZERO
 
 func _physics_process(delta):
@@ -31,5 +34,9 @@ func initialize(start_position, player_position):
 	velocity = velocity.rotated(Vector3.UP, rotation.y) 
 
 
-func _on_VisibilityNotifier_screen_exited():
-	queue_free() # Replace with function body.
+#func _on_VisibilityNotifier_screen_exited():
+	#queue_free() 
+
+func squash():
+	emit_signal("squashed")
+	queue_free()
