@@ -13,7 +13,7 @@ script = ExtResource( 2 )
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="Diddy Kong Racing Crash" type="MeshInstance" parent="Pivot"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1.08039, 0 )
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, -1.08039, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 

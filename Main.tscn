@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -22,5 +24,14 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.866025, 0.5, 0, -0.5, -0.866025, 0, 15.5319, 0 )
+transform = Transform( 1, 0, 0, 0, -0.184946, 0.982749, 0, -0.982749, -0.184946, 0.0308571, 42.2339, -81.0726 )
 shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0826013, 0 )
+
+[node name="CameraPivot" type="Position3D" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0826013, 0 )
+
+[node name="Camera" type="Camera" parent="Player/CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 0.940145, 0.340773, 0, -0.340773, 0.940145, 0, 5.29583, 5.67094 )
