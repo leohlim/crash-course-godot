@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Diddy Kong Racing Crash.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -10,8 +10,10 @@ albedo_color = Color( 1, 0.192157, 0.0588235, 1 )
 radius = 0.5
 height = 3.0
 
+[sub_resource type="CylinderShape" id=3]
+
 [node name="Player" type="KinematicBody"]
-collision_mask = 6
+collision_mask = 14
 script = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
@@ -24,3 +26,15 @@ material/0 = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.424877, 0 )
 shape = SubResource( 1 )
+
+[node name="Hitbox" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0114491, 0 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Hitbox"]
+transform = Transform( 0.663886, 0, 0, 0, 1.44006, 0, 0, 0, 0.73982, 0, 0.996434, 0 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

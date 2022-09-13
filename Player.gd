@@ -1,16 +1,20 @@
 extends KinematicBody
 
+# Emitted when the player is hit by an enemy.
+signal hit
+
 # How fast the player moves in meters per second
 export var speed = 12 
 
 # Downward acceleration when in the air, in meters per second squared
 export var fall_acceleration = 75
-
+# Vertical impulse applied to character when jump button is pressed, in meters per second
 export var jump_impulse = 30
-
+# Vertical impulse applied to character when bouncing on an enemy or obstacle, in meters per second
 export var bounce_impulse = 16
 
 var velocity = Vector3.ZERO
+
 
 
 func _physics_process(delta):
@@ -62,3 +66,9 @@ func _physics_process(delta):
 	
 	
 	
+func die():
+	emit_signal("hit")
+	queue_free()
+
+func _on_Hitbox_body_entered(body):
+	die() # Replace with function body.
